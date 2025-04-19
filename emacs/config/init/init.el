@@ -41,32 +41,15 @@
 ; Packages
 ;
 
-;; LSP
-(pkg/require
- 'lsp-mode
- 'lsp-ui
- 'flycheck
- 'company
- 'lsp-treemacs
- 'helm-lsp
- 'lsp-ivy
- 'dap-mode)
-
 ;; Misc packages
 (pkg/require
- 'multiple-cursors
- 'yasnippet-snippets
- 'yasnippet
  'magit
- 'whitespace-cleanup-mode
- 'elcord
  'evil)
 
 ;; Language packages
 (pkg/require
  'gdscript-mode
  'yaml-mode
- 'nasm-mode
  'rust-mode
  'markdown-mode
  'lua-mode
@@ -110,22 +93,14 @@
 (setq-default indent-tabs-mode nil)
 
 ;; Formatting style
-(add-hook 'c-mode-hook (lambda ()
-                         (interactive)
-                         (c-toggle-comment-style -1)
-                         (local-set-key (kbd "C-c C-f") 'clang-format-buffer)))
-
-(add-hook 'c++-mode-hook (lambda ()
-                           (interactive)
-                           (c-toggle-comment-style -1)
-                           (local-set-key (kbd "C-c C-f") 'clang-format-buffer)))
-
 (setq-default c-basic-offset 4
               c-default-style '((java-mode . "java")
                                 (awk-mode . "awk")
                                 (other . "bsd")))
 
 ;; Whitespace
+(pkg/require 'whitespace-cleanup-mode)
+
 (defconst USE-WHITESPACE 1)
 
 (defun set-up-whitespace-handling ()
@@ -144,19 +119,29 @@
 ;; Dired
 (setq dired-listing-switches "-lah --group-directories-first")
 
+;; Disable bell
+(setq ring-bell-function 'ignore)
+
 ;
 ; Configure packages
 ;
 
 ;; Elcord
+(pkg/require 'elcord)
 (elcord-mode)
 
 ;; Yasnippets
+(pkg/require
+ 'yasnippet-snippets
+ 'yasnippet)
+
 (yas-global-mode 1)
 (yas-load-directory (concat config-directory
                             (file-name-as-directory "snippets")))
 
 ;; Multiple cursors
+(pkg/require 'multiple-cursors)
+
 (setq mc/always-run-for-all t)
 (global-set-key (kbd "C-x RET RET") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -164,6 +149,8 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; Company mode
+(pkg/require 'company)
+
 (global-company-mode)
 (add-hook 'tuareg-mode-hook
           (lambda ()
@@ -171,6 +158,15 @@
             (company-mode 0)))
 
 ;; lsp-mode
+(pkg/require
+ 'lsp-mode
+ 'lsp-ui
+ 'flycheck
+ 'lsp-treemacs
+ 'helm-lsp
+ 'lsp-ivy
+ 'dap-mode)
+
 (setq lsp-ui-doc-enable nil)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-ui-doc-position 'bottom)
@@ -180,6 +176,7 @@
 (add-hook 'prog-mode-hook #'lsp-deferred)
 
 ;; NASM mode
+(pkg/require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.asm?\\'" . nasm-mode))
 
 ;; EditorConfig
@@ -199,6 +196,31 @@
                         (interactive)
                         (unless (not (editorconfig-exists))
                           (editorconfig-format-buffer))))))
+
+;; clang-format
+(add-hook 'c-mode-hook (lambda ()
+                         (interactive)
+                         (c-toggle-comment-style -1)
+                         (local-set-key (kbd "C-c C-f") 'clang-format-buffer)))
+
+(add-hook 'c++-mode-hook (lambda ()
+                           (interactive)
+                           (c-toggle-comment-style -1)
+                           (local-set-key (kbd "C-c C-f") 'clang-format-buffer)))
+
+;; Prettier
+(pkg/require 'prettier-js)
+
+(defun setup-prettier ()
+  (prettier-js-mode)
+  (prettier-js-mode -1)
+  (local-set-key (kbd "C-c C-f") (lambda ()
+                                   (interactive)
+                                   (prettier-js))))
+
+(add-hook 'js-mode-hook 'setup-prettier)
+(add-hook 'html-mode-hook 'setup-prettier)
+(add-hook 'css-mode-hook 'setup-prettier)
 
 ;
 ; Keybindings
