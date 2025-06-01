@@ -1,0 +1,6 @@
+#!/bin/sh
+
+answer=$(printf "No\nYes" | bemenu -p "Do you wanna logout?" --cw 2 --hp 8 --ff "#bbbbbb" --fb "#222222" --ab "#222222" --af "#bbbbbb" --nb "#222222" --nf "#bbbbbb" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee")
+if [ "$answer" = "Yes" ]; then
+    swaymsg exit
+fi

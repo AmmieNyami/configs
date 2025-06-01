@@ -1,0 +1,114 @@
+#!/bin/sh
+
+function addtopath()
+{
+    echo "export PATH=\$PATH:$1" >> ~/.posixshellrc-path
+}
+
+function changeBright()
+{
+    # IMPORTANT! - LVDS-1 is only for my laptop! For you, you
+    # can get this information with xrandr
+    xrandr --output LVDS-1 --brightness $1
+}
+
+function fix_dunst()
+{
+    if [ -f /usr/share/dbus-1/services/org.knopwob.dunst.service ]; then
+        sudo rm /usr/share/dbus-1/services/org.knopwob.dunst.service
+    fi
+}
+
+function set_random_wallpaper()
+{
+    wallpaper_s=~/.cache/set_random_wallpaper.py
+    cat <<EOF > ${wallpaper_s}
+import subprocess
+import os
+import random
+
+def set_random_wallpaper(path: str):
+    wallpapers = []
+    for (root, dirs, files) in os.walk(path):
+        for f in files:
+            fpath = os.path.join(root, f)
+            wallpapers.append(fpath)
+    subprocess.run(["feh", "--bg-fill", random.choice(wallpapers)])
+
+home = os.getenv("HOME")
+set_random_wallpaper(f"{home}/Pictures/wallpapers/")
+EOF
+    python3 ${wallpaper_s}
+}
+
+function cd()
+{
+    if [ -z $@ ]; then
+        builtin cd $HOME/Home
+    else
+        builtin cd $@
+    fi
+}
+
+### EXPORTS ###
+
+export PAGER='less'
+export EDITOR='nvim'
+export VISUAL='code'
+export TOR_DIR='/home/hatsu/.opt/tor-browser'
+
+### ALIASES ###
+
+girlboss() {
+    local last_history_line=""
+    if [ -n "$ZSH_VERSION" ]; then
+        last_history_line="$(history | tail -n -1)"
+    else
+        last_history_line="$(history | tail -n -2 | head -n -1)"
+    fi
+    local last_cmd=$(echo $last_history_line | awk '{$1=""; sub(/^ /, ""); print}')
+    echo "sudo $last_cmd" | tee /tmp/girlboss
+    source /tmp/girlboss
+    rm -f /tmp/girlboss
+}
+
+alias nano="echo \"ERROR: could not open nano: normie editor detected\""
+alias cls="clear"
+alias vim="nvim"
+alias md="mkdir"
+alias demacs="/bin/emacs"
+alias hiy="git"
+alias last_installed="/bin/ls --time-style=+%d\ %b\ %G\ %H:%M -lct /etc | tail -1 | awk '{print \$6, \$7, \$8, \$9}'"
+alias wget="wget -c"
+alias lf="VISUAL=$EDITOR lf"
+alias neofetch="hyfetch"
+
+# list
+alias ls='eza --color=always -lah'
+alias l='ls'
+alias l.="ls -A | egrep '^\.'"
+
+# fix obvious typos
+alias cd..='cd ..'
+alias pdw='pwd'
+
+# Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+### PATH ###
+
+if [ -d "$HOME/.bin" ]; then
+    PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Update path in a separate file
+[[ -f ~/.posixshellrc-path ]] && . ~/.posixshellrc-path
+
+# For stuff that doesn't belong in the repo
+[[ -f ~/.posixshellrc-custom ]] && . ~/.posixshellrc-custom

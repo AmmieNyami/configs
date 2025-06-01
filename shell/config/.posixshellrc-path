@@ -1,0 +1,17 @@
+export PATH=$PATH:/home/hatsu/.opt/porth/
+export PATH=$PATH:/home/hatsu/.opt/boomer/
+export PATH=$PATH:/home/hatsu/.opt/ascii-image-converter/
+export PATH=$PATH:/home/hatsu/.cargo/bin
+export PATH=$PATH:/home/hatsu/.opt/luaserver/bin
+export PATH=$PATH:/home/hatsu/.opt/VSCode-linux-x64/bin
+export PATH=$PATH:/home/hatsu/.opt/mugshot-0.4.3/bin
+export PATH=$PATH:/home/hatsu/.nimble/bin
+export PATH=$PATH:/home/hatsu/.opt/node/bin
+export PATH=$PATH:/media/hatsu/HomePartition/Documents/Programs/Linux/IntelliJ\ Idea/bin
+export PATH=$PATH:/media/hatsu/HomePartition/Documents/Programs/Linux/Godot
+export PATH=$PATH:/home/hatsu/.opt/platform-tools
+export PATH=$PATH:/home/hatsu/go/bin/
+export PATH=$PATH:/home/hatsu/.opt/zig
+export PATH=$PATH:/home/hatsu/.opt/gf
+export PATH=$PATH:/home/hatsu/.opt/tcc/bin
+export PATH=$PATH:/home/hatsu/.opt/c3

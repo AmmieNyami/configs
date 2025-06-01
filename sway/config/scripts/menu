@@ -1,0 +1,3 @@
+#!/bin/sh
+
+j4-dmenu-desktop --dmenu='bemenu --cw 2 --hp 8 --ff "#bbbbbb" --fb "#222222" --ab "#222222" --af "#bbbbbb" --nb "#222222" --nf "#bbbbbb" --hb "#005577" --hf "#eeeeee" --tb "#005577" --tf "#eeeeee" -i' --term=alacritty

@@ -1,0 +1,18 @@
+[font]
+size = 14
+
+[font.bold]
+family = "Less Perfect DOS VGA"
+style = "Bold"
+
+[font.bold_italic]
+family = "Less Perfect DOS VGA"
+style = "Bold Italic"
+
+[font.italic]
+family = "Less Perfect DOS VGA"
+style = "Italic"
+
+[font.normal]
+family = "Less Perfect DOS VGA"
+style = "Regular"

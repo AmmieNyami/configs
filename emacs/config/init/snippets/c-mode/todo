@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: todo
+# key: todo
+# --
+fprintf(stderr, "TODO: $1\n");
+exit(1);

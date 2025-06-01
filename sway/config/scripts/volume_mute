@@ -1,0 +1,12 @@
+#!/bin/sh
+
+pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+message=""
+if [ "$(pactl list sinks | awk '/Mute/ { print $2 }')" = "yes" ]; then
+    message="Muted"
+else
+    message="Unmuted"
+fi
+
+dunstify Volume $message

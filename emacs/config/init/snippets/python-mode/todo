@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: todo
+# key: todo
+# --
+print("TODO: $1", file=sys.stderr)
+exit(1)

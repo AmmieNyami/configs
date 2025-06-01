@@ -1,0 +1,15 @@
+[general]
+import = ["/home/hatsu/.config/alacritty/themes/gruber-darker-theme.toml",
+          "/home/hatsu/.config/alacritty/fonts/normal-fonts.toml"]
+
+[cursor.style]
+blinking = "On"
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+opacity = 1
+#opacity = 0.6555
+
+dimensions = { columns = 100, lines = 22 }

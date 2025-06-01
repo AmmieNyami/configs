@@ -1,0 +1,32 @@
+[diskfree]
+command=printf "Sesbian lex: %s\n" "`df -h / | awk '{ print $3 }' | sed -n '2p'`"
+interval=30
+color=#FF0000
+
+[todo]
+full_text=Todo: ∞
+color=#00FF00
+
+[memory]
+command=printf "M: %s\n" "`free -h | awk '/^Mem/ { print $3"/"$2 }' | sed s/i//g`"
+interval=5
+color=#FFFF00
+
+[cpucores]
+full_text=CPU cores: -42342
+color=#FF0000
+
+[cpupercentage]
+command=printf "%b" "import psutil\nprint('CPU {}%'.format(psutil.cpu_percent(interval=2)))" | python3
+interval=5
+color=#00FF00
+
+[netstatus]
+command=sh ~/.config/sway/scripts/network_available
+interval=5
+color=#FFFF00
+
+[time]
+command=date "+%T %D"
+interval=1
+color=#FFFF00

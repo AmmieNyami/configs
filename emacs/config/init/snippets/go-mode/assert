@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: assert
+# key: assert
+# --
+if !($1) {
+	fmt.Fprintf(os.Stderr, "Assertion Failed: $2\n")
+    os.Exit(1)
+}

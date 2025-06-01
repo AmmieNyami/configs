@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: todo
+# key: todo
+# --
+fmt.Fprintf(os.Stderr, "TODO: $1\n")
+os.Exit(1)
