@@ -179,6 +179,9 @@
 (pkg/require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.asm?\\'" . nasm-mode))
 
+;; KDL mode
+(add-to-list 'auto-mode-alist '("\\.kdl?\\'" . kdl-ts-mode))
+
 ;; EditorConfig
 (editorconfig-mode 1)
 
