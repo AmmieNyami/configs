@@ -28,7 +28,7 @@ find_command thunar
 
 if ! command -v "zoomer" 2>&1 >/dev/null; then
     echo "ERROR: command \`zoomer\` could not be found" >&2
-    echo "NOTE: you can install \`zoomer\` from https://github.com/HatsuSixty/zoomer" >&2
+    echo "NOTE: you can install \`zoomer\` from https://github.com/AmmieNyami/zoomer" >&2
     exit 1
 fi
 
