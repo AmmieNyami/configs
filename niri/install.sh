@@ -1,30 +1,27 @@
 # This file is not meant to be run directly. Instead,
 # it should be sourced by the root `install.sh` script.
 
-echo "Installing sway config..."
+echo "Installing niri config..."
+
+find_command niri
 
 #
-# Find required commands for the sway setup
+# Find required commands for the niri setup
 #
 
 # Obvious ones
 
 find_command Xwayland
-find_command i3blocks
 
 # Commands for key bindings
-
-find_command bemenu
-find_command j4-dmenu-desktop
 
 find_command dunst
 find_command pactl
 
-find_command wl-copy
-find_command slurp
-find_command grim
-
 find_command thunar
+
+# Required for zoomer
+find_command grim
 
 if ! command -v "zoomer" 2>&1 >/dev/null; then
     echo "ERROR: command \`zoomer\` could not be found" >&2
@@ -35,12 +32,12 @@ fi
 # Commands for startup
 
 find_command dunst
-find_command pipewire-pulse
 find_command udiskie
-find_command dex
+find_command xwayland-satellite
+find_command swww
 
 #
-# Install sway config
+# Install niri config
 #
 
-link_path "$(pwd)/config" "${HOME}/.config/sway"
+link_path "$(pwd)/config" "${HOME}/.config/niri"

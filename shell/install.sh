@@ -3,6 +3,9 @@
 
 echo "Installing shell config..."
 
+find_command zsh
+find_command bash
+
 ZSHAS_PATH="${HOME}/.zshas"
 ZSHSH_PATH="${HOME}/.zshsh"
 

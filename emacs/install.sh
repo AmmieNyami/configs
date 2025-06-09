@@ -3,4 +3,6 @@
 
 echo "Installing emacs config..."
 
+find_command emacs
+
 link_path "$(pwd)/config" "${HOME}/.config/emacs"

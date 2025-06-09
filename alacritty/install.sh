@@ -3,13 +3,14 @@
 
 echo "Installing alacritty config..."
 
+find_command alacritty
+
 #
 # Compile "scripts"
 #
 
 find_command cc
 find_command tmux
-find_command alacritty
 
 cc -o ./config/scripts/terminal ./config/scripts/terminal.c
 
