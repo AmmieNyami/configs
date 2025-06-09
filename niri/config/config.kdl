@@ -210,6 +210,7 @@ binds {
     Mod+Z            { spawn "zoomer"; }
 
     // Misc
+    Mod+D { spawn "~/.config/niri/scripts/date_time"; }
     Mod+X { quit; }
 
     // Niri stuff
