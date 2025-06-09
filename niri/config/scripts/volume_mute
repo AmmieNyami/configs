@@ -9,4 +9,4 @@ else
     message="Unmuted"
 fi
 
-dunstify Volume $message
+dunstify -r 6969 Volume $message
