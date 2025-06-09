@@ -206,7 +206,7 @@ binds {
 
     // Apps
     Mod+Return       { spawn "~/.config/alacritty/scripts/terminal"; }
-    Mod+Shift+Return { spawn "thunar"; }
+    Mod+Shift+Return { spawn "nautilus"; }
     Mod+Z            { spawn "zoomer"; }
 
     // Misc

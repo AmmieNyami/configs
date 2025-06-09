@@ -18,7 +18,7 @@ find_command Xwayland
 find_command dunst
 find_command pactl
 
-find_command thunar
+find_command nautilus
 
 # Required for zoomer
 find_command grim
