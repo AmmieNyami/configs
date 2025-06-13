@@ -1,0 +1,64 @@
+{
+    "position": "top",
+    "layer": "top",
+    "height": 30,
+
+    "modules-left": ["niri/workspaces"],
+    "modules-center": [],
+    "modules-right": ["tray", "disk", "memory", "network", "pulseaudio", "clock"],
+
+    "niri/workspaces": {
+        "format": "{value}",
+        "current-only": true,
+        "disable-click": true
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " {volume}%",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " "]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+
+    "disk": {
+        "format": "  {}%",
+        "interval": 20,
+        "path": "/"
+    },
+
+    "memory": {
+        "format": "  {}%",
+        "interval": 5
+    },
+
+    "network": {
+        "format-ethernet": " Net",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠ ",
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "  {:%B %d %H:%M:%S}",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "on-click-right": "mode",
+        }
+    }
+}

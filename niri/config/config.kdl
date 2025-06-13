@@ -192,7 +192,7 @@ binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
     // Menu
-    Mod+Shift+D { spawn "~/.config/niri/scripts/menu"; }
+    Mod+Shift+D { spawn "fuzzel"; }
 
     // Volume
     KP_Up    { spawn "~/.config/niri/scripts/volume_up"; }
@@ -384,10 +384,20 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 // Autostart
 //
 
-spawn-at-startup "dunst"
-spawn-at-startup "udiskie" "-t"
-spawn-at-startup "xwayland-satellite" ":1"
+// Bar
+spawn-at-startup "waybar"
+
+// Wallpaper
 spawn-at-startup "swww-daemon"
+
+// Notifications
+spawn-at-startup "dunst"
+
+// udisks stuff + tray icon
+spawn-at-startup "udiskie" "-t"
+
+// Xwayland support
+spawn-at-startup "xwayland-satellite" ":1"
 
 //
 // Environment variables

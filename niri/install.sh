@@ -15,7 +15,7 @@ find_command Xwayland
 
 # Commands for key bindings
 
-find_command dunst
+find_command dunstify
 find_command pactl
 
 find_command nautilus

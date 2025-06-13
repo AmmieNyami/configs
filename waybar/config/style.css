@@ -1,0 +1,35 @@
+@define-color background_color rgba(24, 24, 24, 0.9);
+@define-color foreground_color #FFCFED;
+
+@define-color tray_item_background_color #7659DA;
+@define-color tray_item_foreground_color #FFFFFF;
+
+* {
+    border: none;
+    border-radius: 0px;
+    font-family: Iosevka Nerd Font;
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @background_color;
+    color: @foreground_color;
+}
+
+#disk,
+#memory,
+#network,
+#pulseaudio,
+#clock {
+    background-color: @tray_item_background_color;
+    color: @tray_item_foreground_color;
+    border-radius: 10px;
+    margin: 2px;
+    padding: 0px 10px 0px 10px;
+}
+
+#tray {
+    margin-right: 2px;
+}
