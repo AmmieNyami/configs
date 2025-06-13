@@ -3,9 +3,8 @@
     width = 400
     gap_size = 5
 
-    origin = top-center
+    origin = top-right
 
-    icon_theme = Adwaita
     icon_position = left
     enable_recursive_icon_lookup = true
 
@@ -28,8 +27,8 @@
 
 [urgency_critical]
     background = "#900000"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
+    foreground = "#FFFFFF"
+    frame_color = "#FF0000"
     timeout = 0
     override_pause_level = 60
     default_icon = dialog-warning
