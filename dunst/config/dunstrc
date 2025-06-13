@@ -2,8 +2,10 @@
     height = (70, 300)
     width = 400
     gap_size = 5
-
     origin = top-right
+
+    corners = all
+    corner_radius = 10
 
     icon_position = left
     enable_recursive_icon_lookup = true
