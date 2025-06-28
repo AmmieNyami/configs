@@ -378,7 +378,7 @@ binds {
 prefer-no-csd
 
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Home/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 //
 // Autostart
