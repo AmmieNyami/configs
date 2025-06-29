@@ -22,13 +22,13 @@ bool is_process_tmux(const char* pid)
                 dst, strerror(errno));
         return false;
     }
-    char tmux[4];
+    char tmux[5];
     fread(tmux, sizeof(tmux), sizeof(tmux[0]), file);
     fclose(file);
 
     free(dst);
 
-    return strncmp(tmux, "tmux", 4) == 0;
+    return strncmp(tmux, "tmux", 5) == 0;
 }
 
 bool is_tmux_running(void)
@@ -91,15 +91,28 @@ int main(int argc, const char** argv, char** const envp)
     (void) argc;
     (void) argv;
 
+    const char* home = getenv("HOME");
+    if (!home) {
+        fprintf(stderr, "ERROR: `HOME` environment variable does not exist\n");
+        return 1;
+    }
+
+    char* home_path = (char*)malloc(256);
+    memset(home_path, 0, 256);
+    strcat(home_path, home);
+    strcat(home_path, "/Home");
+
     if (is_tmux_running()) {
         printf("[INFO] tmux is running, connecting to existing session\n");
-        if (!execute_shell_command("alacritty -e tmux a", envp, "/home/hatsu/Home"))
+        if (!execute_shell_command("alacritty -e tmux a", envp, home_path))
             return 1;
     } else {
         printf("[INFO] tmux is not running, creating a new session\n");
-        if (!execute_shell_command("alacritty -e tmux", envp, "/home/hatsu/Home"))
+        if (!execute_shell_command("alacritty -e tmux", envp, home_path))
             return 1;
     }
+
+    free(home_path);
 
     return 0;
 }

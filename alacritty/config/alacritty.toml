@@ -1,6 +1,6 @@
 [general]
-import = ["/home/hatsu/.config/alacritty/themes/gruber-darker-theme.toml",
-          "/home/hatsu/.config/alacritty/fonts/normal-fonts.toml"]
+import = ["./themes/gruber-darker-theme.toml",
+          "./fonts/normal-fonts.toml"]
 
 [cursor.style]
 blinking = "On"
