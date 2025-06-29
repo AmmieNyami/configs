@@ -1,0 +1,15 @@
+export PATH=$PATH:$HOME/.opt/porth/
+export PATH=$PATH:$HOME/.opt/boomer/
+export PATH=$PATH:$HOME/.opt/ascii-image-converter/
+export PATH=$PATH:$HOME/.cargo/bin
+export PATH=$PATH:$HOME/.opt/luaserver/bin
+export PATH=$PATH:$HOME/.opt/VSCode-linux-x64/bin
+export PATH=$PATH:$HOME/.opt/mugshot-0.4.3/bin
+export PATH=$PATH:$HOME/.nimble/bin
+export PATH=$PATH:$HOME/.opt/node/bin
+export PATH=$PATH:$HOME/.opt/platform-tools
+export PATH=$PATH:$HOME/go/bin/
+export PATH=$PATH:$HOME/.opt/zig
+export PATH=$PATH:$HOME/.opt/gf
+export PATH=$PATH:$HOME/.opt/tcc/bin
+export PATH=$PATH:$HOME/.opt/c3

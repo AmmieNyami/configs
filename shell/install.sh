@@ -49,4 +49,4 @@ find_command nvim
 link_path "$(pwd)/config/.zshrc" "${HOME}/.zshrc"
 link_path "$(pwd)/config/.bashrc" "${HOME}/.bashrc"
 link_path "$(pwd)/config/.posixshellrc-personal" "${HOME}/.posixshellrc-personal"
-link_path "$(pwd)/config/.posixshellrc-path" "${HOME}/.posixshellrc-path"
+link_path "$(pwd)/config/.pathrc" "${HOME}/.pathrc"
