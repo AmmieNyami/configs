@@ -12,7 +12,7 @@ link_path() {
         exit 1
     fi
 
-    if [ -e "$2" ]; then
+    if [ -e "$2" ] || [ -L "$2" ]; then
         printf "\`$2\` already exists. Replace it? (y/n) "
         read answer
         if [ "$answer" = "y" ]; then
