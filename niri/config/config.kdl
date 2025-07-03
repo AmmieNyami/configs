@@ -367,6 +367,14 @@ binds {
 }
 
 //
+// Overview
+//
+
+overview {
+    zoom 0.8
+}
+
+//
 // Misc settings
 //
 
