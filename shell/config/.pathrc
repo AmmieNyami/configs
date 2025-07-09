@@ -12,4 +12,5 @@ export PATH=$PATH:$HOME/go/bin/
 export PATH=$PATH:$HOME/.opt/zig
 export PATH=$PATH:$HOME/.opt/gf
 export PATH=$PATH:$HOME/.opt/tcc/bin
-export PATH=$PATH:$HOME/.opt/c3
+export PATH=$PATH:$HOME/.opt/c3export
+export PATH=$PATH:$HOME/.opt/innoextract/bin
