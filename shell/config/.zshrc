@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-# Source .posixshellrc-personal
-[[ -f ~/.posixshellrc-personal ]] && . ~/.posixshellrc-personal
+# Source .commonrc
+[[ -f ~/.commonrc ]] && . ~/.commonrc
 
 # Customize PROMPT
 PROMPT="%n@%m:%~$ "

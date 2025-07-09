@@ -55,4 +55,4 @@ fi
 [[ -f ~/.pathrc ]] && . ~/.pathrc
 
 # For stuff that doesn't belong in the repo
-[[ -f ~/.posixshellrc-custom ]] && . ~/.posixshellrc-custom
+[[ -f ~/.commonrc-custom ]] && . ~/.commonrc-custom
